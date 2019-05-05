@@ -15,10 +15,10 @@
 }  */
 .btn {
     width: 300px;
-    height: 100px;
+    height: 50px;
     font-size: 16px;
     margin: 10px;
-    border-radius: 20px;
+    border-radius: 50px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 24px;
 }
@@ -28,10 +28,15 @@
     height: 300px;
     /* position: absolute; */
     /* left: 200px; */
-    display: flex;
     /* flex-grow: 3; */
-    justify-content: center;
-    align-items: center;
     background-color: blueviolet;
-    border: 50%;
+    border-radius: 7%;
+    border-color: white;
+    margin: 10px;
+}
+
+#dieDiv {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 10px;
 }

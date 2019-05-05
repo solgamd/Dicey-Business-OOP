@@ -47,37 +47,33 @@
 
 //////////////
 
-$('#btnDie').click(function () {
+$('#btnDie').click(function () {    //GENERATE DIE
     let div = '<div id="die" class="col-3"></div>';
     div.id = 'die';
     $('#dieDiv').append(div);
 })
 
-$('.btn').click(function (e) {
-            let colors = ['orange', 'teal', 'turquoise', 'light green', 'yellow'];
-            let newColor = colors[Math.floor(Math.random() * colors.length)];
-            e.target.style.background = newColor;
-        
+$('.btn').click(function () {    // BUTTON FUN
+    let colors = ['blue', 'teal', 'turquoise', 'navy', 'sea foam', 'darkred'];
+    let newColor = colors[Math.floor(Math.random() * colors.length)];
+        this.style.backgroundColor = newColor;
+        $(this).css('color', 'white');
 });
 
-        
-
-function roll(min, max) {
+function btnRoll(min, max) {
     this.value = Math.random() * (max - min) + min;
 }
-
 
 class Die {
         constructor (value){
             this.value = value;
-            this.div.id = 'die';
+            this.div.addClass = 'die';
 
     }
-    roll() {
-        this.value = Math.random() * (6 - 1) + 1;
-        console.log(this.value);
+    roll(min, max) {
+        this.value = Math.random() * (max - min) + min;
     }
 }
 
 
-// let newDie = new Die()
+// let newDie = new Die(6, 1)
