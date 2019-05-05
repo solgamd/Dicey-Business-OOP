@@ -35,7 +35,7 @@
     margin: 10px;
 }
 
-#dieDiv {
+#dieContainer {
     display: flex;
     flex-wrap: wrap;
     margin: 10px;
