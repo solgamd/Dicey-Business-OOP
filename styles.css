@@ -23,16 +23,22 @@
     font-size: 24px;
 }
 
-#die {
-    width: 300px;
-    height: 300px;
+.die {
+    width: 200px;
+    height: 200px;
     /* position: absolute; */
     /* left: 200px; */
     /* flex-grow: 3; */
-    background-color: blueviolet;
+    border: 10px solid rgb(116, 97, 242);
     border-radius: 7%;
-    border-color: white;
-    margin: 10px;
+    box-shadow: 5px 5px 8px 0px rgba(114,114,115,1);
+    margin: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 7em;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    color: rgb(116, 97, 242);
 }
 
 #dieContainer {
