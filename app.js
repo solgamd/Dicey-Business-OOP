@@ -96,48 +96,33 @@ class Die {
         this.die.className = 'die';
         this.roll();
         this.die.textContent = this.value;
-        dieCont.append(this.die);
-        // this.die.addEventListener('click', () => {
-        //     updateValues();
-        // })
-
+        dieCont.appendChild(this.die);
         this.die.addEventListener('dblclick', () => {
             this.die.remove();
         })
-
     }
     roll() {      // ONLY ASSIGNS THIS.VALUE THE FIRST/INITIAL TIME
         this.value = Math.floor(Math.random() * 6 + 1);
         this.die.textContent = this.value;
     }
     // remove() {
-
     // }
 }
 
 let diceCorral = [];
 
 btnNew.addEventListener('click', () => {                // NEW DICE BUTTON CLICK LISTENER
-    let newDie = new Die(0);
+    let newDie = new Die();
     diceCorral.push(newDie);
     console.log(diceCorral);
+
 })
 
-btnRoll.addEventListener('click', updateValues);        // ROLL BUTTON CLICK LISTENER
+btnRoll.addEventListener('click', () => {
+    console.log(`you need to add code here`);
+    
 
-function updateValues() {
-    diceCorral.forEach(() => {
-        this.value = value;
-        this.value = Math.floor(Math.random() * 6 + 1);
-        die.innerText = this.value;
-        // let allDice = document.getElementsByClassName('die');
-        // allDice.textContent = this.value;
-    });
-
-    console.log('click listener + function works');
-
-
-}
+})
 
 
 
