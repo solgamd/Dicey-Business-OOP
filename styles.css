@@ -39,6 +39,7 @@
     font-size: 7em;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
     color: rgb(116, 97, 242);
+    user-select: none;
 }
 
 #dieContainer {
@@ -46,3 +47,7 @@
     flex-wrap: wrap;
     margin: 10px;
 }
+
+
+
+
