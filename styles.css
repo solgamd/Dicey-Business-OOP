@@ -1,18 +1,9 @@
 #btn-container {
-    /* position: relative; */
     display: flex;
     flex-direction: column;
-    justify-content: center;
     align-items: center;
-
-
 }
 
-/* .square {
-    width: 100px;
-    height: 100px;
-    position: absolute;
-}  */
 .btn {
     width: 300px;
     height: 50px;
@@ -21,14 +12,15 @@
     border-radius: 50px;
     font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
     font-size: 24px;
+    outline: none;
+}
+.btn:hover {
+    background-color: cornflowerblue;
 }
 
-.die {
+.die {               
     width: 200px;
     height: 200px;
-    /* position: absolute; */
-    /* left: 200px; */
-    /* flex-grow: 3; */
     border: 10px solid rgb(116, 97, 242);
     border-radius: 7%;
     box-shadow: 5px 5px 8px 0px rgba(114,114,115,1);
@@ -41,6 +33,8 @@
     color: rgb(116, 97, 242);
     user-select: none;
 }
+
+
 
 #dieContainer {
     display: flex;

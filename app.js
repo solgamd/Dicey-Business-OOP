@@ -1,91 +1,4 @@
-// // $('.btn').click(function () {    // BUTTON FUN
-// //     let colors = ['blue', 'teal', 'turquoise', 'navy', 'darkred'];
-// //     let newColor = colors[Math.floor(Math.random() * colors.length)];
-// //         if ($(this).css('color', 'black')) {
-// //             $(this).css('color', 'white')
-// //         };
-// //         this.style.backgroundColor = newColor;
-// // });
-// // function btnRoll(min, max) {       ////////// WRONG CODE ---------------------->
-// //     this.value = Math.random() * (max - min) + min;
-// //     ('#die').append(div);
-// // }
-
-// //// ----------------------------------------------------------------------------------
-// // class Die {
-// //     constructor() {
-// //         // this.value = value;
-
-// //         $('#').click(function () {    //GENERATE DIE
-// //             let div = '<div id="die" class="col-3"></div>';
-
-// //             div.id = 'die';
-// //             console.log('clicked');
-// //             roll();
-// //         })
-
-// //     }
-// //     roll(min, max) {
-// //         this.min = 1;
-// //         this.max = 6;
-// //         this.value = Math.floor(Math.random() * (max - min) + min);
-// //         console.log(this.value);
-// //         // $('#dieDiv').append(div);
-// //     }
-// // }
-
-// // --------------------------------------------------------------------------
-
-
-// // function roll() {
-// //     let min = 1;
-// //     let max = 6;
-// //     const value = Math.floor(Math.random() * (max - min) + min);
-// //     die.innerText = value;
-
-// //     console.log(value);
-// // }
-
-// let dieCont = document.getElementById('dieContainer'); // GRAB DICE CONTAINER FROM HTML
-// let  = document.getElementById('');         // GRAB NEW DIE BUTTON FROM HTML
-// let btnRoll = document.getElementById('btnRoll');         // GRAB ROLL BUTTON FROM HTML
-
-// .addEventListener('click', function () {    /// BUTTON TO CREATE DICE
-//     let die = document.createElement('div');
-//     dieCont.appendChild(die);
-//     die.className = 'die';
-//     console.log('die created');
-//     let value = Math.floor(Math.random() * (max - min) + min);
-//     let dieText = document.createTextNode(value);
-//     die.append(dieText);
-// });
-
-// function roll() {        // FUNCTION TO ROLL DICE/CHANGE VALUES                
-//     let value = Math.floor(Math.random() * (6 - 1) + 1);
-//     this.value = value;
-//     let dieText = document.createTextNode(value);
-//     dieCont.remove(dieText);
-//     die.append(value);                // ISSUE: APPEND ONLY HAPPENS ONCE, THEN 'DIE.APPEND IS NOT A FUNCTION AT ROLL'
-//     console.log('rolled' + value);      
-// }
-
-// // function roll() {       // FUNCTION TO ROLL DICE/CHANGE VALUES 
-// //     this.min = min;
-// //     this.max = max;
-// //     let value = Math.floor(Math.random() * (max - min) + min);
-// //     let dieText = document.createTextNode(value);
-// //     die.remove(dieText);
-// //     die.append(value);                // ISSUE: APPEND ONLY HAPPENS ONCE, THEN 'DIE.APPEND IS NOT A FUNCTION AT ROLL'
-// //     console.log('rolled' + value); 
-// // }
-
-// btnRoll.addEventListener('click', function() {
-//     roll();
-// });
-
-//-----------------------------------------------------------
-
-const dieCont = document.getElementById('dieContainer'); // GRAB BUTTON ELEMENTS FROM HTML
+const dieCont = document.getElementById('dieContainer');    // GRAB ELEMENTS FROM HTML
 const btnNew = document.getElementById('btnNew');         
 const btnRoll = document.getElementById('btnRoll');        
 const btnSum = document.getElementById('btnSum'); 
@@ -97,31 +10,42 @@ class Die {
         this.die.className = 'die';
         this.roll();
         dieCont.appendChild(this.die);
-        this.die.addEventListener('dblclick', () => {
+        this.die.addEventListener('dblclick', () => {       // REMOVE DIE DBLCLICK LISTENER
             this.die.remove();
+            let i = diceCorral.indexOf(this);
+            diceCorral.splice(i, 1);                        // "Above & Beyond" #3
+            console.log(diceCorral);     
+        })
+        this.die.addEventListener('click', () => {
+            this.roll();                                    // "Above & Beyond" #2
         })
     }
-    roll() {      // ONLY ASSIGNS THIS.VALUE THE FIRST/INITIAL TIME
+    roll() {     
         this.value = Math.floor(Math.random() * 6 + 1);
         this.die.textContent = this.value;
     }
 }
 
-let diceCorral = [];
+const diceCorral = [];
 
 btnNew.addEventListener('click', () => {                // NEW DICE BUTTON CLICK LISTENER
     let newDie = new Die();
     diceCorral.push(newDie);
-    console.log(diceCorral);
 })
 
-
 btnRoll.addEventListener('click', () => {               // ROLL DICE BUTTON CLICK LISTENER
-    for (let i = 0; i < diceCorral.length; i++) {
-        diceCorral[i].roll();
+    for (let die of diceCorral) {
+        die.roll();
     }
 })
 
+btnSum.addEventListener('click', () => {                // "Above & Beyond" #1
+    let sum = 0;
+    for (let die of diceCorral) {
+        sum += die.value;
+    }
+    alert('The sum of all dice is ' + sum + '.');
+})
 
 
 
